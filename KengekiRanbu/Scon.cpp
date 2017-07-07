@@ -4,7 +4,7 @@
 PLAYER_STATE g_Zangeki = { g_Player.x, g_Player.y, 40.f };
 PLAYER_STATE g_Zangeki2 = { g_Player.x, g_Player.y, 40.f };
 PLAYER_STATE g_Kirisage = { g_Player.x + 30.f, g_Player.y + 30.f, 40.f };
-PLAYER_STATE g_Kirinuke = { g_Player.x - 100, g_Player.y, 60.f };
+PLAYER_STATE g_Kirinuke = { g_Player.x - 30.f, g_Player.y, 200.f };
 
 bool AskillFlag = false;
 bool Askill2Flag = false;
@@ -23,28 +23,25 @@ void Scontrol() {
 	{
 		g_Zangeki2.x += 12.f;
 	}
-	if (SskillFlag == true)
+	if (g_Player.x <= 520)
 	{
-		int Xcount = 0;
-		KFlag = true;
-
-		for (int i = 0; i < 100; i++) {
-			Xcount++;
-			SskillFlag = false;
-			if (Xcount >= 5) 
-			{
-				g_Player.x += 2.f;
-			}
-			if (g_Player.x >= 720.f)
-			{
-				break;
-			}
-		}
-		if (Kcount >= 30)
+		if (SskillFlag == true)
 		{
-			KFlag = false;
-			ControlFlag = true;
-			Kcount = 0;
+			int Xcount = 0;
+			KFlag = true;
+
+			for (int i = 0; i < 100; i++) {
+				Xcount++;
+				if (Xcount >= 5)
+				{
+					g_Player.x += 2.f;
+					SskillFlag = false;
+				}
+				if (g_Player.x >= 720.f)
+				{
+					break;
+				}
+			}
 		}
 	}
 }

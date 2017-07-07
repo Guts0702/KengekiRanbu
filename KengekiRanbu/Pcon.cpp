@@ -21,6 +21,7 @@ void Pcontrol()
 			if (LeftFlag == false)
 			{
 				g_Player.x -= MOVE_SPEED;
+				SskillFlag = false;
 				if (Key[LEFT] == PUSH || Key[LEFT] == ON)
 				{
 					if (g_Player.x <= 100)
@@ -36,6 +37,7 @@ void Pcontrol()
 			if (RightFlag == false)
 			{
 				g_Player.x += MOVE_SPEED;
+				SskillFlag = false;
 				if (Key[RIGHT] == PUSH || Key[RIGHT] == ON)
 				{
 					if (g_Player.x >= 670)

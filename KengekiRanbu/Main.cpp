@@ -25,10 +25,7 @@ void Render()
 
 	Brender();
 	Prender();
-	if (KFlag == true)
-	{
-		Srender();
-	}
+	Srender();
 
 	//ï`âÊÇÃèIóπ
 	g_pD3Device->EndScene();
@@ -139,11 +136,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,//Å©WindowsÉAÉvÉ
 
 	D3DXCreateTextureFromFile(
 		g_pD3Device,
-		"back.png",
+		"Back.png",
 		&g_pTexture[BACKGROUND_TEX]);
 	D3DXCreateTextureFromFile(
 		g_pD3Device,
-		"back2.png",
+		"Back2.png",
 		&g_pTexture[BACKGROUND2_TEX]);
 	D3DXCreateTextureFromFile(
 		g_pD3Device,

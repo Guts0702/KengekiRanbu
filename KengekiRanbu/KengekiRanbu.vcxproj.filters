@@ -36,13 +36,7 @@
     <ClCompile Include="Scon.cpp">
       <Filter>ソース ファイル\Skill</Filter>
     </ClCompile>
-    <ClCompile Include="Sren.cpp">
-      <Filter>ソース ファイル\Skill</Filter>
-    </ClCompile>
     <ClCompile Include="Pcon.cpp">
-      <Filter>ソース ファイル\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Pren.cpp">
       <Filter>ソース ファイル\Player</Filter>
     </ClCompile>
     <ClCompile Include="Keycontrol.cpp">
@@ -51,14 +45,11 @@
     <ClCompile Include="Bcon.cpp">
       <Filter>ソース ファイル\Background</Filter>
     </ClCompile>
-    <ClCompile Include="Bren.cpp">
-      <Filter>ソース ファイル\Background</Filter>
-    </ClCompile>
     <ClCompile Include="Econ.cpp">
       <Filter>ソース ファイル\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Eren.cpp">
-      <Filter>ソース ファイル\Enemy</Filter>
+    <ClCompile Include="Render.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
