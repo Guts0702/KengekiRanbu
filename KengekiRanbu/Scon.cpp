@@ -17,13 +17,13 @@ int Kcount = 0;
 void Scontrol() {
 	if (AskillFlag == true)
 	{
-		g_Zangeki.x += 12.f;
+		g_Zangeki.x += ZMoveSpeed;
 	}
 	if (Askill2Flag == true)
 	{
-		g_Zangeki2.x += 12.f;
+		g_Zangeki2.x += ZMoveSpeed;
 	}
-	if (g_Player.x <= 520)
+	if (g_Player.x <= 570)
 	{
 		if (SskillFlag == true)
 		{

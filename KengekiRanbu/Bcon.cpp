@@ -1,8 +1,8 @@
 #include "Header.h"
 #include "Sengen.h"
 
-BACKGROUND_STATE g_backGround = { 0.f,0.f,1920.f,980.f };
-BACKGROUND_STATE g_backGround2 = { g_backGround.Width,0.f,g_backGround.Width + 1560.f,980.f };
+BACKGROUND_STATE g_backGround = { 0.f,0.f,1760.f,1130.f };
+BACKGROUND_STATE g_backGround2 = { g_backGround.Width,0.f,g_backGround.Width + 1760.f,1130.f };
 
 void Bcontrol()
 {
@@ -12,7 +12,7 @@ void Bcontrol()
 		if (g_backGround.Width <= 0.f)
 		{
 			g_backGround.x = 0.f;
-			g_backGround.Width = 1920.f;
+			g_backGround.Width = 1760.f;
 		}
 	}
 }

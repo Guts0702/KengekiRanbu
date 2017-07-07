@@ -1,7 +1,7 @@
 #include "Header.h"
 #include "Sengen.h"
 
-PLAYER_STATE g_Player = { 200.f, 250.f, 60.f };
+PLAYER_STATE g_Player = { 200.f, 200.f, 60.f };
 
 bool jumpFlag = false;
 bool skyFlag = false;
@@ -21,7 +21,6 @@ void Pcontrol()
 			if (LeftFlag == false)
 			{
 				g_Player.x -= MOVE_SPEED;
-				SskillFlag = false;
 				if (Key[LEFT] == PUSH || Key[LEFT] == ON)
 				{
 					if (g_Player.x <= 100)
@@ -37,7 +36,6 @@ void Pcontrol()
 			if (RightFlag == false)
 			{
 				g_Player.x += MOVE_SPEED;
-				SskillFlag = false;
 				if (Key[RIGHT] == PUSH || Key[RIGHT] == ON)
 				{
 					if (g_Player.x >= 670)
@@ -49,7 +47,7 @@ void Pcontrol()
 		}
 		g_pD3Device->Present(NULL, NULL, NULL, NULL);
 		if (Scount % 2 == 0) {
-			if (g_Player.y == 250.f) {
+			if (g_Player.y == 200.f) {
 				if (Askillcount >= 30) {
 					if (Key[A] == ON)
 					{
@@ -62,7 +60,7 @@ void Pcontrol()
 			}
 		}
 		if (Scount % 2 == 1) {
-			if (g_Player.y == 250.f) {
+			if (g_Player.y == 200.f) {
 				if (Askillcount >= 30) {
 					if (Key[A] == ON)
 					{
@@ -74,7 +72,7 @@ void Pcontrol()
 				}
 			}
 		}
-		if (g_Player.y == 250.f) {
+		if (g_Player.y == 200.f) {
 			if (Sskillcount >= 30) {
 				if (Key[S] == PUSH)
 				{
@@ -99,10 +97,10 @@ void Pcontrol()
 			//速度をプレイヤーの座標に入れる
 			g_Player.y += jump;
 
-			if (g_Player.y >= 250.f) {
+			if (g_Player.y >= 200.f) {
 				if (jumpFlag == true)
 				{
-					g_Player.y = 250.f;
+					g_Player.y = 200.f;
 					jumpFlag = false;
 					skyFlag = false;
 				}

@@ -12,7 +12,8 @@
 #define MOVE_SPEED 10.f
 #define JUMP_POWER -27.f
 #define GRAVITY 2.0f
-#define BGMoveSpeed 7.f
+#define BGMoveSpeed 8.f
+#define ZMoveSpeed 12.f
 
 #pragma comment(lib, "winmm.lib")
 #pragma comment(lib, "d3d9.lib")
