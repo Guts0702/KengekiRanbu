@@ -73,12 +73,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="settexturecpp.cpp" />
+    <ClCompile Include="skil.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Background.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="skil.h" />
     <ClInclude Include="Sub.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>

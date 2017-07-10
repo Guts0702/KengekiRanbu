@@ -4,6 +4,7 @@
 
 #include"Sub.h"
 #include"Background.h"
+#include"Enemy.h"
 
 #define MAP_HEIGHT 15
 #define MAP_WIDTH  60
@@ -34,10 +35,10 @@ void Backgrounddraw()
 
 	CUSTOMVERTEX backGround2[]
 	{
-		{ 0.f, 0.f, 1.f, 1.f, 0xFFFFFFFF, 0.f, 0.f },
-		{ 1280.f, 0.f, 1.f, 1.f, 0xFFFFFFFF, 1.f, 0.f },
+		{	 0.f,	0.f, 1.f, 1.f, 0xFFFFFFFF, 0.f, 0.f },
+		{ 1280.f,	0.f, 1.f, 1.f, 0xFFFFFFFF, 1.f, 0.f },
 		{ 1280.f, 720.f, 1.f, 1.f, 0xFFFFFFFF, 1.f, 1.f },
-		{ 0.f, 720.f, 1.f, 1.f, 0xFFFFFFFF, 0.f, 1.f }
+		{	 0.f, 720.f, 1.f, 1.f, 0xFFFFFFFF, 0.f, 1.f }
 	};
 
 	// Š¢‚Ìƒ`ƒbƒv‚Ì’¸“_î•ñ
@@ -60,6 +61,13 @@ void Backgrounddraw()
 
 	g_pD3Device->SetTexture(0, g_pTexture[BACKGROUND_TEX]);
 	g_pD3Device->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, backGround, sizeof(CUSTOMVERTEX));
+
+	/*‚à‚µ“G‚ð‘S•”“|‚·‚ÆƒQ[ƒ€ƒNƒŠƒA‰æ–Ê‚É‚·‚é*/
+	if (count == 5)
+	{
+		g_pD3Device->SetTexture(0, g_pTexture[BACKGROUND2_TEX]);
+		g_pD3Device->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, backGround2, sizeof(CUSTOMVERTEX));
+	}
 
 	/*maptip‚Ì•`‰æ*/
 	for (int i = 0; i < MAP_WIDTH; i++)

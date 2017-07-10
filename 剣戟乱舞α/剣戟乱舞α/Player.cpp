@@ -4,22 +4,16 @@
 #include<dinput.h>
 #include"Sub.h"
 #include"Player.h"
+#include"skil.h"
 
 PLAYER_STATE		g_Player = { 150.f, 530.f, 64.f};
+extern PLAYER_STATE		g_Zangeki;
 
 #define SCROOLMAX 1000
 #define SCROOL 280
 
-static float x = 0;
-static float y = 0;
-static float Mspeed = 5.0;
-static bool ueflag = false;
-static bool sitaflag = false;
-static bool AtattaFlag = false;
-
-static int cx = 320 - 16;
-static float cy = 448.0f;
-static float sy = 0.0f;
+float x = 0;
+float y = 0;
 
 static float jumpPower = 43;
 static float Gravity = 1;
@@ -30,7 +24,7 @@ static bool IsJump = false;
 float g_scx = 0;
 float g_scy = 0;
 
-int tipxy(float, float);
+extern int tipxy(float, float);
 void KeyCheckDinput(KEYSTATE* Key, int);
 
 void Playerdraw()
@@ -71,8 +65,6 @@ void Playercontrol()
 
 	/*jumpします。*/
 
-	
-
 	if (IsJump)
 	{
 
@@ -103,6 +95,12 @@ void Playercontrol()
 	}
 
 
+	/*Aボタンが押されました*/
+	if (key[DIK_A] == PUSH)
+	{
+		zangekiflag = true;
+	}
+
 	/*端に行ったら操作できないように*/
 
 	if (tipxy(g_Player.x + g_Player.scale + x + g_scx, g_Player.y + y + g_scy) != 1)
@@ -116,11 +114,11 @@ void Playercontrol()
 
 			if (tipxy(tmpx - g_Player.scale + x + g_scx, tmpy + y + g_scy) == 0)
 			{
-				tmpMoveX = x - 5;
+				tmpMoveX = x - 15;
 
 				if (SCROOL > (g_Player.x + g_Player.scale + tmpMoveX))
 				{
-					g_scx -= 5;
+					g_scx -= 15;
 				}
 				else
 				{
@@ -141,11 +139,11 @@ void Playercontrol()
 
 			if (tipxy(tmpx + g_Player.scale + x + g_scx, tmpy + y + g_scy) == 0)
 			{
-				tmpMoveX = x + 5;
+				tmpMoveX = x + 15;
 
 				if (SCROOLMAX <= (g_Player.x + g_Player.scale + tmpMoveX))
 				{
-					g_scx += 5;
+					g_scx += 15;
 				}
 				else
 				{

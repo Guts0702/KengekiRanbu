@@ -30,6 +30,8 @@ void Backgrounddraw();
 void Enemydraw();
 void Enemycontrol();
 void UIdraw();
+void skildraw();
+void skilcontrol();
 
 HRESULT InitDinputKey(HWND);
 HRESULT InitDinput();
@@ -133,6 +135,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsta, LPSTR szStr, INT i
 		TEXT("壁紙2.png"),
 		&g_pTexture[BACKGROUND_TEX]);
 
+	D3DXCreateTextureFromFile(
+		g_pD3Device,
+		TEXT("クリア.png"),
+		&g_pTexture[BACKGROUND2_TEX]);
 
 	// マップチップの読み込み
 	D3DXCreateTextureFromFile(
@@ -140,9 +146,20 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsta, LPSTR szStr, INT i
 		"瓦.png",
 		&g_pTexture[MAP_GROUND_TEX]);
 
-	D3DXCreateTextureFromFile(
+	D3DXCreateTextureFromFileEx(
 		g_pD3Device,
-		TEXT("test2.png"),
+		TEXT("立ち絵本番.png"),
+		D3DX_DEFAULT_NONPOW2,
+		D3DX_DEFAULT_NONPOW2,
+		D3DX_DEFAULT,
+		0,
+		D3DFMT_UNKNOWN,
+		D3DPOOL_MANAGED,
+		D3DX_FILTER_NONE,
+		D3DX_FILTER_NONE,
+		D3DCOLOR_ARGB(255, 0, 255, 0),
+		NULL,
+		NULL,
 		&g_pTexture[PLAYER_TEX]);
 
 	D3DXCreateTextureFromFileEx(
@@ -163,6 +180,22 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsta, LPSTR szStr, INT i
 
 	D3DXCreateTextureFromFileEx(
 		g_pD3Device,
+		TEXT("ハシュマル.png"),
+		D3DX_DEFAULT_NONPOW2,
+		D3DX_DEFAULT_NONPOW2,
+		D3DX_DEFAULT,
+		0,
+		D3DFMT_UNKNOWN,
+		D3DPOOL_MANAGED,
+		D3DX_FILTER_NONE,
+		D3DX_FILTER_NONE,
+		D3DCOLOR_ARGB(255, 0, 255, 0),
+		NULL,
+		NULL,
+		&g_pTexture[ENEMY2_TEX]);
+
+	D3DXCreateTextureFromFileEx(
+		g_pD3Device,
 		TEXT("ライフ.png"),
 		D3DX_DEFAULT_NONPOW2,
 		D3DX_DEFAULT_NONPOW2,
@@ -172,10 +205,27 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsta, LPSTR szStr, INT i
 		D3DPOOL_MANAGED,
 		D3DX_FILTER_NONE,
 		D3DX_FILTER_NONE,
-		D3DCOLOR_ARGB(255, 0, 0, 0),
+		D3DCOLOR_ARGB(255, 0, 255, 0),
 		NULL,
 		NULL,
 		&g_pTexture[life_TEX]);
+
+	D3DXCreateTextureFromFileEx(
+		g_pD3Device,
+		TEXT("zangeki.png"),
+		D3DX_DEFAULT_NONPOW2,
+		D3DX_DEFAULT_NONPOW2,
+		D3DX_DEFAULT,
+		0,
+		D3DFMT_UNKNOWN,
+		D3DPOOL_MANAGED,
+		D3DX_FILTER_NONE,
+		D3DX_FILTER_NONE,
+		D3DCOLOR_ARGB(255, 0, 255, 0),
+		NULL,
+		NULL,
+		&g_pTexture[ZANGEKI_TEX]);
+
 
 	InitDinput();
 	InitDinputKey(hWnd);
@@ -211,6 +261,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsta, LPSTR szStr, INT i
 				Playerdraw();
 				Enemydraw();
 				UIdraw();
+				skildraw();
+				skilcontrol();
 				Playercontrol();
 				Enemycontrol();
 

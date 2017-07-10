@@ -26,6 +26,3 @@ void UIdraw()
 		g_pD3Device->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, life, sizeof(CUSTOMVERTEX));
 	}
 }
-
-
-//void UIcontrol()
