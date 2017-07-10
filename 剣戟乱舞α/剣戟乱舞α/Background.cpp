@@ -63,7 +63,7 @@ void Backgrounddraw()
 	g_pD3Device->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, backGround, sizeof(CUSTOMVERTEX));
 
 	/*‚à‚µ“G‚ð‘S•”“|‚·‚ÆƒQ[ƒ€ƒNƒŠƒA‰æ–Ê‚É‚·‚é*/
-	if (count == 5)
+	if ((count == 5) && (count2flag==true))
 	{
 		g_pD3Device->SetTexture(0, g_pTexture[BACKGROUND2_TEX]);
 		g_pD3Device->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, backGround2, sizeof(CUSTOMVERTEX));

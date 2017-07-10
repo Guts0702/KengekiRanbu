@@ -20,8 +20,11 @@ static float EjumpPower = 15;
 static float ETime[ENEMY_MAX] = { 0, 3, 6, 7, 2 };
 static float EGravity = 1;
 static bool EsJump = false;
-static float ex2 = 2800;
-static float ey2 = 0;
+
+static float ex2 = 2700;
+static float ey2 = 90;
+static int count2 = 0;
+bool count2flag = false;
 
 int count = 0;
 bool changeflag = false;
@@ -64,16 +67,19 @@ void Enemydraw()
 		}
 	}
 
-	CUSTOMVERTEX enemy2[]
+	if (count2flag == false)
 	{
-		{ g_enemy.x - g_enemy.scale + ex2 - g_scx, g_enemy.y - g_enemy.scale + ey2 - g_scy, 1.f, 1.f, 0xFFFFFFFF, 0.f, 0.f },
-		{ g_enemy.x + g_enemy.scale + ex2 - g_scx, g_enemy.y - g_enemy.scale + ey2 - g_scy, 1.f, 1.f, 0xFFFFFFFF, 1.f, 0.f },
-		{ g_enemy.x + g_enemy.scale + ex2 - g_scx, g_enemy.y + g_enemy.scale + ey2 - g_scy, 1.f, 1.f, 0xFFFFFFFF, 1.f, 1.f },
-		{ g_enemy.x - g_enemy.scale + ex2 - g_scx, g_enemy.y + g_enemy.scale + ey2 - g_scy, 1.f, 1.f, 0xFFFFFFFF, 0.f, 1.f }
-	};
+		CUSTOMVERTEX enemy2[]
+		{
+			{ g_enemy.x - g_enemy.scale + ex2 - g_scx, g_enemy.y - g_enemy.scale + ey2 - g_scy, 1.f, 1.f, 0xFFFFFFFF, 0.f, 0.f },
+			{ g_enemy.x + g_enemy.scale + ex2 - g_scx, g_enemy.y - g_enemy.scale + ey2 - g_scy, 1.f, 1.f, 0xFFFFFFFF, 1.f, 0.f },
+			{ g_enemy.x + g_enemy.scale + ex2 - g_scx, g_enemy.y + g_enemy.scale + ey2 - g_scy, 1.f, 1.f, 0xFFFFFFFF, 1.f, 1.f },
+			{ g_enemy.x - g_enemy.scale + ex2 - g_scx, g_enemy.y + g_enemy.scale + ey2 - g_scy, 1.f, 1.f, 0xFFFFFFFF, 0.f, 1.f }
+		};
 
-	g_pD3Device->SetTexture(0, g_pTexture[ENEMY2_TEX]);
-	g_pD3Device->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, enemy2, sizeof(CUSTOMVERTEX));
+		g_pD3Device->SetTexture(0, g_pTexture[ENEMY2_TEX]);
+		g_pD3Device->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, enemy2, sizeof(CUSTOMVERTEX));
+	}
 }
 
 void Enemycontrol()
@@ -82,6 +88,7 @@ void Enemycontrol()
 	{
 		if (emyflag[i] == false)
 		{
+			/*“–‚½‚è”»’è*/
 			if (g_Zangeki.x - g_Zangeki.scale + zx - g_scx <  g_enemy.x + g_enemy.scale + ex[i] - g_scx &&     
 				g_enemy.x - g_enemy.scale + ex[i] - g_scx  <  g_Zangeki.x - g_Zangeki.scale + zx - g_scx &&    
 				g_Zangeki.y - g_Zangeki.scale + zy - g_scy <  g_enemy.y - g_enemy.scale + ey[i] - g_scy &&
@@ -93,7 +100,21 @@ void Enemycontrol()
 			}
 		}
 
-		/*“G‚Ì‹““®*/
+		/*’†ƒ{ƒX‚Ì“–‚½‚è”»’è*/
+		if (g_Zangeki.x - g_Zangeki.scale + zx - g_scx < g_enemy.x + g_enemy.scale + ex2 - g_scx &&
+			g_enemy.x - g_enemy.scale + ex2 - g_scx    < g_Zangeki.x - g_Zangeki.scale + zx - g_scx &&
+			g_Zangeki.y - g_Zangeki.scale + zy - g_scy < g_enemy.y - g_enemy.scale + ey2 - g_scy &&
+			g_enemy.y - g_enemy.scale + ey2 - g_scy    < g_Zangeki.y + g_Zangeki.scale * 1.5 + zy - g_scy)
+		{
+			count2++;
+			zangekiflag = false;
+			if (count2 == 5)
+			{
+				count2flag = true;
+			}
+		}
+
+		/*ŽG‹›“G‚Ì‹““®*/
 		if ((EsJump == false) || (emyflag == false))
 		{
 			ex[i] -= 1;

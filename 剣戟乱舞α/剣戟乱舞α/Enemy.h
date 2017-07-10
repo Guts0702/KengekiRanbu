@@ -6,6 +6,7 @@ void Enemydraw();
 
 extern bool changeflag;
 extern int count;
+extern bool count2flag;
 
 
 #endif Enemy
