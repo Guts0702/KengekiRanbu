@@ -148,7 +148,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsta, LPSTR szStr, INT i
 
 	D3DXCreateTextureFromFileEx(
 		g_pD3Device,
-		TEXT("—§‚¿ŠG–{”Ô.png"),
+		TEXT("player.png"),
 		D3DX_DEFAULT_NONPOW2,
 		D3DX_DEFAULT_NONPOW2,
 		D3DX_DEFAULT,
