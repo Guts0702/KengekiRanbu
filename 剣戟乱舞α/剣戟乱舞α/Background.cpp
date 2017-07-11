@@ -18,7 +18,7 @@ extern float g_scy;
 
 int tipxy(float px, float py)
 {
-	int pmx = (int)px / TIPSIZE;
+	int pmx = (int)px / TIPSIZE; 
 	int pmy = (int)py / TIPSIZE;
 	return map[pmy][pmx];
 }
