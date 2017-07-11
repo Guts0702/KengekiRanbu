@@ -13,7 +13,7 @@ PLAYER_STATE		g_enemy = { 1150.f, 500.f, 64.f };
 extern float g_scx;
 extern float g_scy;
 
-static float ex[ENEMY_MAX] = { 0, 600, 1200, 1800, 2400};
+static float ex[ENEMY_MAX] = { 0, 600, 1200, 1800, 2400};//エネミー間の距離　ｘ
 static float ey[ENEMY_MAX] = { 0, 0, 0, 0, 0 };
 static float emyflag[ENEMY_MAX] = { false, false, false, false, false};
 static float EjumpPower = 15;
@@ -108,7 +108,7 @@ void Enemycontrol()
 		{
 			count2++;
 			zangekiflag = false;
-			if (count2 == 5)
+			if (count2 == 25)
 			{
 				count2flag = true;
 			}

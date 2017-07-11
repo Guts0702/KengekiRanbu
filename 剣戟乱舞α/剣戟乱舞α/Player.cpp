@@ -15,7 +15,7 @@ extern PLAYER_STATE		g_Zangeki;
 float x = 0;
 float y = 0;
 
-static float jumpPower = 43;
+static float jumpPower = 38;
 static float Gravity = 1;
 static float Gravity2 = 15;
 static float Time = 0;
@@ -114,11 +114,11 @@ void Playercontrol()
 
 			if (tipxy(tmpx - g_Player.scale + x + g_scx, tmpy + y + g_scy) == 0)
 			{
-				tmpMoveX = x - 15;
+				tmpMoveX = x - 10;
 
 				if (SCROOL > (g_Player.x + g_Player.scale + tmpMoveX))
 				{
-					g_scx -= 15;
+					g_scx -= 10;
 				}
 				else
 				{
@@ -139,11 +139,11 @@ void Playercontrol()
 
 			if (tipxy(tmpx + g_Player.scale + x + g_scx, tmpy + y + g_scy) == 0)
 			{
-				tmpMoveX = x + 15;
+				tmpMoveX = x + 10;
 
 				if (SCROOLMAX <= (g_Player.x + g_Player.scale + tmpMoveX))
 				{
-					g_scx += 15;
+					g_scx += 10;
 				}
 				else
 				{
