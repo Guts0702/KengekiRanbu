@@ -13,7 +13,7 @@ PLAYER_STATE		g_enemy = { 1150.f, 500.f, 64.f };
 extern float g_scx;
 extern float g_scy;
 
-static float ex[ENEMY_MAX] = { 0, 600, 1200, 1800, 2400};//エネミー間の距離　ｘ
+static float ex[ENEMY_MAX] = { 0, 200, 400, 600, 800 };//エネミー間の距離　ｘ
 static float ey[ENEMY_MAX] = { 0, 0, 0, 0, 0 };
 static float emyflag[ENEMY_MAX] = { false, false, false, false, false};
 static float EjumpPower = 15;
@@ -27,7 +27,6 @@ static int count2 = 0;
 bool count2flag = false;
 
 int count = 0;
-bool changeflag = false;
 
 static float tu[2] = { 0.6f, 1.0f};
 static float tv[5] = {0.0f,0.25f,0.5f,0.75f,1.f};
@@ -97,6 +96,7 @@ void Enemycontrol()
 				count++;
 				zangekiflag = false;
 				emyflag[i] = true;
+				zangekiactiv = true;
 			}
 		}
 
@@ -111,6 +111,7 @@ void Enemycontrol()
 			if (count2 == 25)
 			{
 				count2flag = true;
+				zangekiactiv = true;
 			}
 		}
 
@@ -129,10 +130,5 @@ void Enemycontrol()
 				}
 			}
 		}
-	}
-
-	if (count == 5)
-	{
-		changeflag = true;
 	}
 }

@@ -9,4 +9,4 @@ extern int count;
 extern bool count2flag;
 
 
-#endif Enemy
+#endif 

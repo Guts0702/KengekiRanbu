@@ -70,17 +70,22 @@
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Dinput.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="HWND.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="settexturecpp.cpp" />
+    <ClCompile Include="settexture.cpp" />
     <ClCompile Include="skil.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Background.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="HWND.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="setexture.h" />
     <ClInclude Include="skil.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="Sub.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>

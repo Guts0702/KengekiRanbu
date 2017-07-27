@@ -32,6 +32,7 @@ void Enemycontrol();
 void UIdraw();
 void skildraw();
 void skilcontrol();
+void set();
 
 HRESULT InitDinputKey(HWND);
 HRESULT InitDinput();
@@ -126,105 +127,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInsta, LPSTR szStr, INT i
 
 	settexture();
 	MapLoad("map.csv");
-
-	//頂点に入れるデータを設定
-	g_pD3Device->SetFVF(D3DFVF_CUSTOMVERTEX);
-
-	D3DXCreateTextureFromFile(
-		g_pD3Device,
-		TEXT("壁紙2.png"),
-		&g_pTexture[BACKGROUND_TEX]);
-
-	D3DXCreateTextureFromFile(
-		g_pD3Device,
-		TEXT("クリア.png"),
-		&g_pTexture[BACKGROUND2_TEX]);
-
-	// マップチップの読み込み
-	D3DXCreateTextureFromFile(
-		g_pD3Device,
-		"瓦.png",
-		&g_pTexture[MAP_GROUND_TEX]);
-
-	D3DXCreateTextureFromFileEx(
-		g_pD3Device,
-		TEXT("player.png"),
-		D3DX_DEFAULT_NONPOW2,
-		D3DX_DEFAULT_NONPOW2,
-		D3DX_DEFAULT,
-		0,
-		D3DFMT_UNKNOWN,
-		D3DPOOL_MANAGED,
-		D3DX_FILTER_NONE,
-		D3DX_FILTER_NONE,
-		D3DCOLOR_ARGB(255, 0, 255, 0),
-		NULL,
-		NULL,
-		&g_pTexture[PLAYER_TEX]);
-
-	D3DXCreateTextureFromFileEx(
-		g_pD3Device,
-		TEXT("敵a統合.png"),
-		D3DX_DEFAULT_NONPOW2,
-		D3DX_DEFAULT_NONPOW2,
-		D3DX_DEFAULT,
-		0,
-		D3DFMT_UNKNOWN,
-		D3DPOOL_MANAGED,
-		D3DX_FILTER_NONE,
-		D3DX_FILTER_NONE,
-		D3DCOLOR_ARGB(255, 0, 255, 0),
-		NULL,
-		NULL,
-		&g_pTexture[ENEMY_TEX]);
-
-	D3DXCreateTextureFromFileEx(
-		g_pD3Device,
-		TEXT("ハシュマル.png"),
-		D3DX_DEFAULT_NONPOW2,
-		D3DX_DEFAULT_NONPOW2,
-		D3DX_DEFAULT,
-		0,
-		D3DFMT_UNKNOWN,
-		D3DPOOL_MANAGED,
-		D3DX_FILTER_NONE,
-		D3DX_FILTER_NONE,
-		D3DCOLOR_ARGB(255, 0, 255, 0),
-		NULL,
-		NULL,
-		&g_pTexture[ENEMY2_TEX]);
-
-	D3DXCreateTextureFromFileEx(
-		g_pD3Device,
-		TEXT("ライフ.png"),
-		D3DX_DEFAULT_NONPOW2,
-		D3DX_DEFAULT_NONPOW2,
-		D3DX_DEFAULT,
-		0,
-		D3DFMT_UNKNOWN,
-		D3DPOOL_MANAGED,
-		D3DX_FILTER_NONE,
-		D3DX_FILTER_NONE,
-		D3DCOLOR_ARGB(255, 0, 255, 0),
-		NULL,
-		NULL,
-		&g_pTexture[life_TEX]);
-
-	D3DXCreateTextureFromFileEx(
-		g_pD3Device,
-		TEXT("zangeki.png"),
-		D3DX_DEFAULT_NONPOW2,
-		D3DX_DEFAULT_NONPOW2,
-		D3DX_DEFAULT,
-		0,
-		D3DFMT_UNKNOWN,
-		D3DPOOL_MANAGED,
-		D3DX_FILTER_NONE,
-		D3DX_FILTER_NONE,
-		D3DCOLOR_ARGB(255, 0, 255, 0),
-		NULL,
-		NULL,
-		&g_pTexture[ZANGEKI_TEX]);
+	set();
 
 
 	InitDinput();

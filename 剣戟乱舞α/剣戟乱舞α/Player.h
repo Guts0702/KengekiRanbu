@@ -10,5 +10,6 @@ extern float x;
 extern float y;
 extern float g_scx;
 extern float g_scy;
+extern bool Leftflag;
 
-#endif Player
+#endif 

@@ -24,6 +24,8 @@ static bool IsJump = false;
 float g_scx = 0;
 float g_scy = 0;
 
+bool Leftflag = false;
+
 extern int tipxy(float, float);
 void KeyCheckDinput(KEYSTATE* Key, int);
 
@@ -37,8 +39,15 @@ void Playerdraw()
 		{ g_Player.x + g_Player.scale + x, g_Player.y + g_Player.scale + y, 1.f, 1.f, 0xFFFFFFFF, 1.f, 1.f },
 		{ g_Player.x - g_Player.scale + x, g_Player.y + g_Player.scale + y, 1.f, 1.f, 0xFFFFFFFF, 0.f, 1.f }
 	};
-
-	g_pD3Device->SetTexture(0, g_pTexture[PLAYER_TEX]);
+	
+	if (Leftflag)
+	{
+		g_pD3Device->SetTexture(0, g_pTexture[PLAYER_LEFT_TEX]);
+	}
+	else
+	{
+		g_pD3Device->SetTexture(0, g_pTexture[PLAYER_TEX]);
+	}
 	g_pD3Device->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, player, sizeof(CUSTOMVERTEX));
 }
 
@@ -95,10 +104,11 @@ void Playercontrol()
 	}
 
 
-	/*Aボタンが押されました*/
-	if (key[DIK_A] == PUSH)
+	/*Aボタンが押されました尚且つ斬撃が消えてる時*/
+	if ((key[DIK_A] == PUSH)&&(zangekiactiv))
 	{
 		zangekiflag = true;
+		zangekiLeft = Leftflag;
 	}
 
 	/*端に行ったら操作できないように*/
@@ -110,7 +120,7 @@ void Playercontrol()
 			float tmpx = g_Player.x;
 			float tmpy = g_Player.y;
 			float tmpMoveX = x;
-
+			Leftflag = true;
 
 			if (tipxy(tmpx - g_Player.scale + x + g_scx, tmpy + y + g_scy) == 0)
 			{
@@ -135,6 +145,7 @@ void Playercontrol()
 			float tmpx = g_Player.x;
 			float tmpy = g_Player.y;
 			float tmpMoveX = x;
+			Leftflag = false;
 
 
 			if (tipxy(tmpx + g_Player.scale + x + g_scx, tmpy + y + g_scy) == 0)
